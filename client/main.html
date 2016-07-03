@@ -1,0 +1,31 @@
+<head>
+  <title>meteortest</title>
+</head>
+
+<body>
+  {{> loginButtons}}
+  {{> tasks}}
+  
+</body>
+
+<template name="tasks">
+  {{#if currentUser}}
+  <h1>Add tasks!</h1>
+  <form class= "add-task">
+    <label>Task name</label>
+    <input type="text" placeholder="New task" name= "name" />
+    <input type="submit" value="Submit" />
+  </form>
+  {{/if}}
+  <ul>
+    {{#each tasks}}
+
+    <li>
+      {{name}}
+      {{#if currentUser}} 
+      <input class= "delete-task" type="button" value="Delete" />
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</template>
